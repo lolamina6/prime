@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-tube-main/static/css/main.8e1a0c35.css",
-    "main.js": "/react-tube-main/static/js/main.069d8c4f.js",
-    "static/js/377.5c867c76.chunk.js": "/react-tube-main/static/js/377.5c867c76.chunk.js",
-    "index.html": "/react-tube-main/index.html",
-    "main.8e1a0c35.css.map": "/react-tube-main/static/css/main.8e1a0c35.css.map",
-    "main.069d8c4f.js.map": "/react-tube-main/static/js/main.069d8c4f.js.map",
-    "377.5c867c76.chunk.js.map": "/react-tube-main/static/js/377.5c867c76.chunk.js.map"
+    "main.css": "/prime/static/css/main.8e1a0c35.css",
+    "main.js": "/prime/static/js/main.ef8e994f.js",
+    "static/js/377.60c747b2.chunk.js": "/prime/static/js/377.60c747b2.chunk.js",
+    "index.html": "/prime/index.html",
+    "main.8e1a0c35.css.map": "/prime/static/css/main.8e1a0c35.css.map",
+    "main.ef8e994f.js.map": "/prime/static/js/main.ef8e994f.js.map",
+    "377.60c747b2.chunk.js.map": "/prime/static/js/377.60c747b2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8e1a0c35.css",
-    "static/js/main.069d8c4f.js"
+    "static/js/main.ef8e994f.js"
   ]
 }
