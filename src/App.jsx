@@ -10,8 +10,8 @@ const Page = () => {
 
   const { id } = useParams();
   return <div>
-    <div className="wrapper">
-      <iframe title={id} width="960" height="540" src={`//mixdrop.co/e/${id}`} frameborder="0" allowfullscreen="true"></iframe>
+    <div className="iframe-wrapper">
+      <iframe title={id} src={`//mixdrop.co/e/${id}`} frameborder="0" allowfullscreen="true"></iframe>
     </div>
     <Grid />
   </div>
