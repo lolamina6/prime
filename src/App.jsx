@@ -1,28 +1,39 @@
-import React from "react";
-import information from "./information.json";
-import { Routes, Route, useParams } from 'react-router-dom';
-import Card from "./components/Card";
 import { AdBlockDetectedWrapper } from "adblock-detect-react";
+import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import { Route, Routes, useParams } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import Card from "./components/Card";
+import baseInfo from "./baseInformation.json";
+import { shuffle } from "lodash"
 
-const Page = () => {
-
+const Page = ({ files }) => {
   const { id } = useParams();
   return <div>
     <div className="iframe-wrapper">
       <iframe title={id} src={`//mixdrop.co/e/${id}`} frameborder="0" allowfullscreen="true"></iframe>
     </div>
-    <Grid />
+    <Grid files={files} />
   </div>
 }
 
-
-const Grid = () => {
-  return <div className="grid-row">{information.files.map(data => <Card data={data}></Card>)}</div>
+const Grid = ({ files }) => {
+  return <div className="grid-row">{shuffle(files)?.map(file => <Card key={file.ref} data={file}></Card>)}</div>
 }
 
 function App() {
+
+  const [information, setInformation] = useState(baseInfo);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await axios.get('https://api.mixdrop.co/folderlist?email=fuckThePrimeMinister@fuck.you.com&key=vor04F2afUMxYcww3Fig');
+        setInformation(res);
+      } catch { }
+    })()
+  })
 
   return <>
     <AdBlockDetectedWrapper>
@@ -31,9 +42,9 @@ function App() {
       </Popup>
     </AdBlockDetectedWrapper >
     <Routes>
-      <Route path="/" element={<Grid />} />
-      <Route path="/page/:id" element={<Page />} />
-      <Route path="*" element={<Grid />} />
+      <Route path="/" element={<Grid files={information.files} />} />
+      <Route path="/page/:id" element={<Page files={information.files} />} />
+      <Route path="*" element={<Grid files={information.files} />} />
     </Routes>
   </>
 }
