@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Card({ data }) {
   const naviagtion = useNavigate()
-  const { ref, title, server, duration } = data;
+  const { ref, title, duration, thumb } = data;
   return (
     <div className="grid-item"
       style={{ cursor: "pointer" }}
@@ -16,7 +16,7 @@ export default function Card({ data }) {
             currentTarget.onerror = null;
             currentTarget.src = `${process.env.PUBLIC_URL}/images/default_image.gif`
           }}
-          src={`//${server}.mxdcontent.net/thumbs/${ref}.jpg`} alt={title} loading="lazy" />
+          src={thumb} alt={title} loading="lazy" />
 
         <div id="span-case">
           <h3 className="meta-data-title">

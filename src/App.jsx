@@ -24,16 +24,16 @@ const Grid = ({ files }) => {
 
 function App() {
 
-  const [information, setInformation] = useState(baseInfo);
+  // const [information, setInformation] = useState(baseInfo);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const res = await axios.get('https://api.mixdrop.co/folderlist?email=fuckThePrimeMinister@fuck.you.com&key=vor04F2afUMxYcww3Fig');
-        setInformation(res);
-      } catch { }
-    })()
-  })
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       // const res = await axios.get('https://api.mixdrop.co/folderlist?email={email}&key={key}');
+  //       // setInformation(res);
+  //     } catch { }
+  //   })()
+  // })
 
   return <>
     <AdBlockDetectedWrapper>
@@ -42,9 +42,9 @@ function App() {
       </Popup>
     </AdBlockDetectedWrapper >
     <Routes>
-      <Route path="/" element={<Grid files={information.files} />} />
-      <Route path="/page/:id" element={<Page files={information.files} />} />
-      <Route path="*" element={<Grid files={information.files} />} />
+      <Route path="/" element={<Grid files={baseInfo.files} />} />
+      <Route path="/page/:id" element={<Page files={baseInfo.files} />} />
+      <Route path="*" element={<Grid files={baseInfo.files} />} />
     </Routes>
   </>
 }
