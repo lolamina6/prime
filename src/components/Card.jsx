@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 
 export default function Card({ data }) {
   const naviagtion = useNavigate()
-  const { ref, title, duration, thumb } = data;
+  const { fileref, title, duration, thumb } = data;
   return (
     <div className="grid-item"
       style={{ cursor: "pointer" }}
-      onClick={() => { naviagtion(`../page/${ref}`); window.scrollTo(0, 0); }}
+      onClick={() => { naviagtion(`../page/${fileref}`); window.scrollTo(0, 0); }}
     >
       <section className="box feature">
         <img className="image featured non-overlay atfib"
