@@ -1,12 +1,11 @@
 import { AdBlockDetectedWrapper } from "adblock-detect-react";
-import axios from 'axios';
-import React, { useEffect, useState } from "react";
+import { shuffle } from "lodash";
+import React from "react";
 import { Route, Routes, useParams } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import Card from "./components/Card";
 import baseInfo from "./baseInformation.json";
-import { shuffle } from "lodash"
+import Card from "./components/Card";
 
 const Page = ({ files }) => {
   const { id } = useParams();
@@ -42,9 +41,9 @@ function App() {
       </Popup>
     </AdBlockDetectedWrapper >
     <Routes>
-      <Route path="/" element={<Grid files={baseInfo.files} />} />
-      <Route path="/page/:id" element={<Page files={baseInfo.files} />} />
-      <Route path="*" element={<Grid files={baseInfo.files} />} />
+      <Route path="/" element={<Grid files={baseInfo.result.files} />} />
+      <Route path="/page/:id" element={<Page files={baseInfo.result.files} />} />
+      <Route path="*" element={<Grid files={baseInfo.result.files} />} />
     </Routes>
   </>
 }
